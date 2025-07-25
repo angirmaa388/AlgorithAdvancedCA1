@@ -23,8 +23,7 @@ public static void main(String[] args) throws Exception {
         MyArrayList<People> people1 = new MyArrayList<>();
         MyArrayList<People> people2 = new MyArrayList<>();
         MyArrayList<People> people3 = new MyArrayList<>();
-        MyArrayList<People> people4 = new MyArrayList<>();
-        MyArrayList<People> people5 = new MyArrayList<>();
+        
         
         try (Scanner scanner = new Scanner(new File(name))) {
             // this will just print the header in CSV file
@@ -32,10 +31,11 @@ public static void main(String[] args) throws Exception {
             int i = 0;
             String sGetData;
             int peopleLimit = 0; 
-            while (scanner.hasNextLine() && peopleLimit <= 10) {
+            while (scanner.hasNextLine() && peopleLimit <= 10000) {
                 sGetData = scanner.nextLine();
                 String[] data = sGetData.split(",");
                 People person = new People(Integer.parseInt(data[0]), data[1], data[2], data[3], Integer.parseInt(data[4]), Long.parseLong(data[5]));
+                people.add(person);
                 people.add(person);
                 people1.add(person);
                 people2.add(person);
@@ -45,7 +45,7 @@ public static void main(String[] args) throws Exception {
             
             //closes the scanner
         }
-        
+    /*    
         System.out.println("QUESTION 1 BUBBLE SORT");
         
         System.out.println("Before BUBBLE sort");
@@ -55,7 +55,6 @@ public static void main(String[] args) throws Exception {
         System.out.println(people.get(2));
         System.out.println(people.get(3));
         
-        // we can compare objects based on their ID due to overridden CompareTo method in the class below
         System.out.println(people.get(0) == people.get(0));
         System.out.println(people.get(0) == people.get(1));
         
@@ -86,7 +85,6 @@ public static void main(String[] args) throws Exception {
         System.out.println(people1.get(3));
         
         
-        // we can compare objects based on their ID due to overridden CompareTo method in the class below
         System.out.println(people1.get(0) == people1.get(0));
         System.out.println(people1.get(0) == people1.get(1));
         
@@ -151,7 +149,6 @@ public static void main(String[] args) throws Exception {
         System.out.println(people3.get(3));
         
         
-        // we can compare objects based on their ID due to overridden CompareTo method in the class below
         System.out.println(people3.get(0) == people3.get(0));
         System.out.println(people3.get(0) == people3.get(1));
         
@@ -179,7 +176,7 @@ public static void main(String[] args) throws Exception {
         
         System.out.println("QUESTION 4 BINARY SEARCH");
         
-      
+        System.out.println("BINARY SEARCH NON RECURSIVE");
         long lSearchFor = 14484382L; 
         
         
@@ -195,7 +192,7 @@ public static void main(String[] args) throws Exception {
         }
         
         
-        
+        System.out.println("BINARY SEARCH RECURSIVE");
         
         System.out.println("Searching for" + lSearchFor+ "\tusing recursive ");
         
@@ -206,6 +203,68 @@ public static void main(String[] args) throws Exception {
         }else{
             System.out.println("The key: " + lSearchFor + "\twas found at index:" + iIndex1);
         }
+       */
+       System.out.println("*****************************************************************************************************************");
+       
+       System.out.println("QUESTION 5 ADDING THE LIST OF THE PEOPLE");
+       
+       //declaring variables
+       int iId;
+       String sName = "";
+       String sSurname;
+       String sJob;
+       int iAge;
+       long lCredit;
+       boolean correctInput;
+       //declaring scanner 
+       
+       Scanner scanner = new Scanner(System.in);
+       
+       //Started asking the user to enter his/her info
+       System.out.println("Enter the ID");
+       iId = scanner.nextInt();
+       scanner.nextLine();
+       System.out.println("Enter the name");
+     
+     do{  
+         
+         correctInput = true; 
+       try{
+         
+           sName = scanner.nextLine();
+        if(sName.equals("")){
+            throw new StringEmptyException();
+        }else if(sName.matches("\\d+")){
+            throw new OnlyDigitException();
+        }
+        }catch(OnlyDigitException e){
+            System.out.println(e.getOnlyDigitException()); 
+            correctInput = false;
+        
+        }catch(StringEmptyException e){
+            System.out.println(e.getStringEmptyException());
+            correctInput = false;
+           }
+       
+       }while(!correctInput);
+       
+       
+       System.out.println("Enter the sure name");
+       sSurname = scanner.nextLine();
+       System.out.println("Enter the job");
+       sJob = scanner.nextLine();
+       System.out.println("Enter the age");
+       iAge = scanner.nextInt();
+       scanner.nextLine();
+       System.out.println("Enter the credit number");
+       lCredit = scanner.nextLong(); 
+         
+       //adding the new person to the data 
+       People addPerson = new People(iId,sName, sSurname, sJob, iAge,lCredit );
+       people.add(addPerson);
+       System.out.println("Last added row: " + people.get(people.size() - 1));
+       //Printing the last person that I added 
+
   
     }
 
@@ -229,7 +288,6 @@ class People implements Comparable<Object> {
         this.lCredit = lInCredit;
     }
 
-    // the objects can be compared when sorting/searching
     
     
     @Override
