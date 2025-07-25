@@ -36,7 +36,6 @@ public static void main(String[] args) throws Exception {
                 String[] data = sGetData.split(",");
                 People person = new People(Integer.parseInt(data[0]), data[1], data[2], data[3], Integer.parseInt(data[4]), Long.parseLong(data[5]));
                 people.add(person);
-                people.add(person);
                 people1.add(person);
                 people2.add(person);
                 people3.add(person);
@@ -45,7 +44,7 @@ public static void main(String[] args) throws Exception {
             
             //closes the scanner
         }
-    /*    
+      
         System.out.println("QUESTION 1 BUBBLE SORT");
         
         System.out.println("Before BUBBLE sort");
@@ -107,7 +106,7 @@ public static void main(String[] args) throws Exception {
         System.out.println("SIMPLE BUBBLE SORT took:" + (stopTime - startTime)+ "\tms");
         
         System.out.println("*****************************************************************************************************************");
-            
+           
         System.out.println("QUESTION 2 COMPLEXITY OF BUBBLE SORT");
         
         
@@ -135,13 +134,13 @@ public static void main(String[] args) throws Exception {
         people2.bubbleSort();
         stopTime = System.currentTimeMillis();
         System.out.println("BUBBLE SORT took for 10000 list of people information:" + (stopTime - startTime) + "\tms");
+       
         
-        
-        System.out.println("*****************************************************************************************************************");
+       System.out.println("*****************************************************************************************************************");
         
         System.out.println("QUESTION 3 QUICK SORT");
         
-            System.out.println("Before QUICK sort");
+        System.out.println("Before QUICK sort");
         
         System.out.println(people3.get(0));
         System.out.println(people3.get(1));
@@ -177,7 +176,7 @@ public static void main(String[] args) throws Exception {
         System.out.println("QUESTION 4 BINARY SEARCH");
         
         System.out.println("BINARY SEARCH NON RECURSIVE");
-        long lSearchFor = 14484382L; 
+        long lSearchFor = 143336L; 
         
         
         System.out.println("Searching for: " + lSearchFor+ "\tusing non recursive ");
@@ -203,7 +202,7 @@ public static void main(String[] args) throws Exception {
         }else{
             System.out.println("The key: " + lSearchFor + "\twas found at index:" + iIndex1);
         }
-       */
+       
        System.out.println("*****************************************************************************************************************");
        
        System.out.println("QUESTION 5 ADDING THE LIST OF THE PEOPLE");
@@ -226,25 +225,25 @@ public static void main(String[] args) throws Exception {
        scanner.nextLine();
        System.out.println("Enter the name");
      
-     do{  
+     do{  /*here I implimented do while loop if there is any invalid input*/
          
          correctInput = true; 
        try{
          
            sName = scanner.nextLine();
-        if(sName.equals("")){
-            throw new StringEmptyException();
-        }else if(sName.matches("\\d+")){
-            throw new OnlyDigitException();
+        if(sName.equals("")){ /*here it's checking if the string input is empty */
+            throw new StringEmptyException(); /*and if it's empty it will throw an error message*/
+        }else if(sName.matches("\\d+")){ /*here it's checking if the iput only digits*/
+            throw new OnlyDigitException(); /*if it's only digit numbers it'll throw an erorr message*/
         }
         }catch(OnlyDigitException e){
             System.out.println(e.getOnlyDigitException()); 
-            correctInput = false;
+            correctInput = false; 
         
         }catch(StringEmptyException e){
             System.out.println(e.getStringEmptyException());
-            correctInput = false;
-           }
+            correctInput = false;  /*if there is any error it do while loop will work */
+           }                       /*and ask the user enter it again*/
        
        }while(!correctInput);
        
@@ -260,12 +259,12 @@ public static void main(String[] args) throws Exception {
        lCredit = scanner.nextLong(); 
          
        //adding the new person to the data 
-       People addPerson = new People(iId,sName, sSurname, sJob, iAge,lCredit );
+       People addPerson = new People(iId,sName, sSurname, sJob, iAge,lCredit ); /*here creating new set data adding to the people*/
        people.add(addPerson);
        System.out.println("Last added row: " + people.get(people.size() - 1));
        //Printing the last person that I added 
 
-  
+ 
     }
 
 }
