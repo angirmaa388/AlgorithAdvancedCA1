@@ -58,7 +58,7 @@ public static void main(String[] args) throws Exception {
         System.out.println(people.get(0) == people.get(1));
         
        
-        people.bubbleSort();
+        // people.bubbleSort();
         System.out.println("After BUBBLE sort");
         System.out.println(people.get(0));
         System.out.println(people.get(1));
@@ -71,7 +71,7 @@ public static void main(String[] args) throws Exception {
         
         
         Long startTime = System.currentTimeMillis();
-        people.bubbleSort();
+        // people.bubbleSort();
         Long stopTime = System.currentTimeMillis();
         System.out.println("BUBBLE SORT took:" + (stopTime - startTime)+ "\tms");
         
@@ -89,7 +89,7 @@ public static void main(String[] args) throws Exception {
         
         
         System.out.println("After SIMPLE BUBBLE sort ");
-        people1.simpleBubbleSort();
+        // people1.simpleBubbleSort();
         System.out.println(people1.get(0));
         System.out.println(people1.get(1));
         System.out.println(people1.get(2));
@@ -101,7 +101,7 @@ public static void main(String[] args) throws Exception {
         System.out.println(people1.get(0) == people1.get(1));
         
         startTime = System.currentTimeMillis();
-        people1.simpleBubbleSort();
+        // people1.simpleBubbleSort();
         stopTime = System.currentTimeMillis();
         System.out.println("SIMPLE BUBBLE SORT took:" + (stopTime - startTime)+ "\tms");
         
@@ -111,27 +111,27 @@ public static void main(String[] args) throws Exception {
         
         
         startTime = System.currentTimeMillis();
-        people2.bubbleSort();
+        // people2.bubbleSort();
         stopTime = System.currentTimeMillis();
         System.out.println("BUBBLE SORT took for 10 list of people information:" + (stopTime - startTime) + "\tms");
         
         startTime = System.currentTimeMillis();
-        people2.bubbleSort();
+        // people2.bubbleSort();
         stopTime = System.currentTimeMillis();
         System.out.println("BUBBLE SORT took for 100 list of people information:" + (stopTime - startTime) + "\tms");
         
         startTime = System.currentTimeMillis();
-        people2.bubbleSort();
+        // people2.bubbleSort();
         stopTime = System.currentTimeMillis();
         System.out.println("BUBBLE SORT took for 1000 list of people information:" + (stopTime - startTime) + "\tms");
         
         startTime = System.currentTimeMillis();
-        people2.bubbleSort();
+        // people2.bubbleSort();
         stopTime = System.currentTimeMillis();
         System.out.println("BUBBLE SORT took for 5000 list of people information:" + (stopTime - startTime) + "\tms");
         
         startTime = System.currentTimeMillis();
-        people2.bubbleSort();
+        // people2.bubbleSort();
         stopTime = System.currentTimeMillis();
         System.out.println("BUBBLE SORT took for 10000 list of people information:" + (stopTime - startTime) + "\tms");
        
@@ -153,7 +153,7 @@ public static void main(String[] args) throws Exception {
         
         
         System.out.println("After QUICK sort ");
-        people3.quickSort(0, people3.size() - 1);
+        // people3.quickSort(0, people3.size() - 1);
         System.out.println(people3.get(0));
         System.out.println(people3.get(1));
         System.out.println(people3.get(2));
@@ -165,7 +165,7 @@ public static void main(String[] args) throws Exception {
         System.out.println(people3.get(0) == people3.get(1));
         
         startTime = System.currentTimeMillis();
-        people3.quickSort(0, people3.size() - 1);
+        // people3.quickSort(0, people3.size() - 1);
         stopTime = System.currentTimeMillis();
         System.out.println("QUICK SORT took:" + (stopTime - startTime)+ "\tms");
         
@@ -263,8 +263,8 @@ public static void main(String[] args) throws Exception {
        people.add(addPerson);
        System.out.println("Last added row: " + people.get(people.size() - 1));
        //Printing the last person that I added 
-
- 
+       
+System.out.println(people.get(10000));
     }
 
 }
